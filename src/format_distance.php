@@ -28,15 +28,15 @@ function convert_distance(float $from_distance, string $from_unit)
             return [];
         }
         return [
-            'km' => $km,
-            'mi' => $mi,
-            'short' => [
-                'km' => format_distance($km, 'KM', 'S'),
-                'mi' => format_distance($mi, 'MI', 'S')
+            'KM' => $km,
+            'MI' => $mi,
+            'S' => [
+                'KM' => format_distance($km, 'KM', 'S'),
+                'MI' => format_distance($mi, 'MI', 'S')
             ],
-            'long' => [
-                'km' => format_distance($km, 'KM', 'L'),
-                'mi' => format_distance($mi, 'MI', 'L')
+            'L' => [
+                'KM' => format_distance($km, 'KM', 'L'),
+                'MI' => format_distance($mi, 'MI', 'L')
             ]
         ];
     }

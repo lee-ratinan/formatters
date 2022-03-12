@@ -88,13 +88,13 @@ function convert_length(float $from_length, string $from_unit)
             return [];
         }
         return [
-            'cm' => $cm,
-            'm' => $mt,
-            'in' => $in,
-            'ft' => $ft,
-            'formatted' => [
-                'metric' => format_length_metric($cm),
-                'imperial' => format_length_imperial($in),
+            'CM' => $cm,
+            'M' => $mt,
+            'IN' => $in,
+            'FT' => $ft,
+            'FORMATTED' => [
+                'METRIC' => format_length_metric($cm),
+                'IMPERIAL' => format_length_imperial($in),
             ]
         ];
     }
