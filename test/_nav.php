@@ -6,6 +6,7 @@
                 <li><a href="distance.php" class="nav-link px-2 <?= ('distance' == $page ? 'text-warning':'text-secondary') ?>">Distance</a></li>
                 <li><a href="length.php" class="nav-link px-2 <?= ('length' == $page ? 'text-warning':'text-secondary') ?>">Length</a></li>
                 <li><a href="currency.php" class="nav-link px-2 <?= ('currency' == $page ? 'text-warning':'text-secondary') ?>">Currency</a></li>
+                <li><a href="number.php" class="nav-link px-2 <?= ('number' == $page ? 'text-warning':'text-secondary') ?>">Number</a></li>
                 <li><a href="#" class="nav-link px-2 <?= ('datetime' == $page ? 'text-warning':'text-secondary') ?>">Date-Time</a></li>
                 <li><a href="#" class="nav-link px-2 <?= ('address' == $page ? 'text-warning':'text-secondary') ?>">Address</a></li>
                 <li><a href="#" class="nav-link px-2 <?= ('phone' == $page ? 'text-warning':'text-secondary') ?>">Phone</a></li>
