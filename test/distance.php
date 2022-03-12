@@ -17,23 +17,21 @@
         include_once '../src/format_distance.php';
         $func = filter_input(INPUT_POST, 'func', FILTER_SANITIZE_STRING);
         $from_unit = filter_input(INPUT_POST, 'from_unit', FILTER_SANITIZE_STRING);
-        $to_unit = filter_input(INPUT_POST, 'to_unit', FILTER_SANITIZE_STRING);
         $unit = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_STRING);
         $mode = filter_input(INPUT_POST, 'mode', FILTER_SANITIZE_STRING);
         $from_distance = filter_input(INPUT_POST, 'from_distance');
         $distance = filter_input(INPUT_POST, 'distance');
         ?>
-        <div class="container">
+        <div class="container mb-3">
             <div class="row">
                 <div class="col">
                     <h1>Distance</h1>
                     <h2>1. convert_distance()</h2>
                     <p>
                         Convert distance - between kilometers (KM) and miles (MI)<br>
-                        @param string $from_unit Unit of the distance, either KM or MI<br>
-                        @param string $to_unit Unit of the distance to convert to, either KM or MI<br>
                         @param float $from_distance Distance in the $from_unit<br>
-                        @return float Distance in the $to_unit, -1 if error
+                        @param string $from_unit Unit of the distance, either KM or MI<br>
+                        @return array Distances in both kilometers and miles, empty array if error
                     </p>
                     <h3>Test:</h3>
                     <form method="POST">
@@ -42,25 +40,16 @@
                                 convert_distance(
                             </div>
                             <div class="col">
+                                <input class="form-control form-control-sm" name="from_distance" type="number" step="0.01" min="0.01" value="<?= $from_distance ?>" placeholder="(from_distance)" required />
+                            </div>
+                            <div class="col">,</div>
+                            <div class="col">
                                 <select name="from_unit" class="form-control form-control-sm" required>
                                     <option disabled>(from_unit)</option>
                                     <option value="KM" <?= ('KM' == $from_unit ? 'selected':'') ?>>KM (metric; kilometer)</option>
                                     <option value="MI" <?= ('MI' == $from_unit ? 'selected':'') ?>>MI (imperial; mile)</option>
                                     <option value="XX" <?= ('XX' == $from_unit ? 'selected':'') ?>>(invalid input)</option>
                                 </select>
-                            </div>
-                            <div class="col">,</div>
-                            <div class="col">
-                                <select name="to_unit" class="form-control form-control-sm" required>
-                                    <option disabled>(to_unit)</option>
-                                    <option value="MI" <?= ('MI' == $to_unit ? 'selected':'') ?>>MI (imperial; mile)</option>
-                                    <option value="KM" <?= ('KM' == $to_unit ? 'selected':'') ?>>KM (metric; kilometer)</option>
-                                    <option value="XX" <?= ('XX' == $to_unit ? 'selected':'') ?>>(invalid input)</option>
-                                </select>
-                            </div>
-                            <div class="col">,</div>
-                            <div class="col">
-                                <input class="form-control form-control-sm" name="from_distance" type="number" step="0.01" min="0.01" value="<?= $from_distance ?>" placeholder="(from_distance)" required />
                             </div>
                             <div class="col">);</div>
                             <input type="hidden" name="func" value="convert_distance" />
@@ -69,11 +58,10 @@
                     </form>
                     <?php if ('convert_distance' == $func) : ?>
                         <h3>Result</h3>
-                        <ul>
-                            <li><code>convert_distance(<?= $from_unit ?>, <?= $to_unit ?>, <?= $from_distance ?>);</code></li>
-                            <li>Converting <?= $from_distance ?> <?= $from_unit ?> to <?= $to_unit ?>:</li>
-                            <li>Returns <code><?= convert_distance($from_unit, $to_unit, $from_distance) ?></code> <?= $to_unit ?></li>
-                        </ul>
+                        <p>Calls</p>
+                        <code>convert_distance(<?= $from_distance ?>, '<?= $from_unit ?>');</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(convert_distance($from_distance, $from_unit)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
                     <h2>2. format_distance()</h2>
@@ -118,10 +106,10 @@
                     </form>
                     <?php if ('format_distance' == $func) : ?>
                         <h3>Result</h3>
-                        <ul>
-                            <li><code>format_distance(<?= $distance ?>, <?= $unit ?>, <?= $mode ?>);</code></li>
-                            <li>Returns <code><?= format_distance($distance, $unit, $mode) ?></code></li>
-                        </ul>
+                        <p>Calls</p>
+                        <code>format_distance(<?= $distance ?>, '<?= $unit ?>', '<?= $mode ?>');</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(format_distance($distance, $unit, $mode)) ?></pre></code>
                     <?php endif; ?>
                 </div>
             </div>

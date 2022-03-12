@@ -2,33 +2,46 @@
 
 /**
  * Convert distance - between kilometers (KM) and miles (MI)
- * @param string $from_unit Unit of the distance, either KM or MI
- * @param string $to_unit Unit of the distance to convert to, either KM or MI
  * @param float $from_distance Distance in the $from_unit
- * @return float Distance in the $to_unit, -1 if error
+ * @param string $from_unit Unit of the distance, either KM or MI
+ * @return array Distances in both kilometers and miles, empty array if error
  */
-function convert_distance(string $from_unit, string $to_unit, float $from_distance)
+function convert_distance(float $from_distance, string $from_unit)
 {
     $from_unit = strtoupper($from_unit);
-    $to_unit = strtoupper($to_unit);
     $from_distance = floatval($from_distance);
-    if ('MI' == $from_unit && 'KM' == $to_unit)
+    if (is_float($from_distance) && 0.0 < $from_distance)
     {
-        return $from_distance * 1.609344;
-    } else
-    {
-        if ('KM' == $from_unit && 'MI' == $to_unit)
+        $km = 0.0;
+        $mi = 0.0;
+        if ('MI' == $from_unit)
         {
-            return $from_distance / 1.609344;
+            $km = $from_distance * 1.609344;
+            $mi = $from_distance;
+        } else if ('KM' == $from_unit)
+        {
+            $km = $from_distance;
+            $mi = $from_distance / 1.609344;
         } else
         {
-            if ($from_unit == $to_unit)
-            {
-                return $from_distance;
-            }
+            // $from_unit is invalid
+            return [];
         }
+        return [
+            'km' => $km, 4,
+            'mi' => $mi, 4,
+            'short' => [
+                'km' => format_distance($km, 'KM', 'S'),
+                'mi' => format_distance($mi, 'MI', 'S')
+            ],
+            'long' => [
+                'km' => format_distance($km, 'KM', 'L'),
+                'mi' => format_distance($mi, 'MI', 'L')
+            ]
+        ];
     }
-    return -1;
+    // $from_distance is invalid
+    return [];
 }
 
 /**
