@@ -35,8 +35,8 @@
                     <h2>1. convert_length()</h2>
                     <p>
                         Convert length - between metric and imperial<br>
-                        @param string $from_unit Unit of the length, either centimeter (CM), meter (M), foot (FT), or inch (IN)<br>
                         @param float $from_length Length in the $from_unit<br>
+                        @param string $from_unit Unit of the length, either centimeter (CM), meter (M), foot (FT), or inch (IN)<br>
                         @return array Length in the 4 units: centimeter (CM), meter (M), foot (FT), inch (IN), along with the metric (M/CM) and imperial (FT/IN) combinations
                     </p>
                     <h3>Test:</h3>
@@ -45,6 +45,10 @@
                             <div class="col">
                                 convert_length(
                             </div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" name="from_length" type="number" step="0.01" min="0.01" value="<?= $from_length ?>" placeholder="(from_length)" required />
+                            </div>
+                            <div class="col">,</div>
                             <div class="col">
                                 <select name="from_unit" class="form-control form-control-sm" required>
                                     <option disabled>(from_unit)</option>
@@ -55,10 +59,6 @@
                                     <option value="XX" <?= ('XX' == $from_unit ? 'selected':'') ?>>(invalid input)</option>
                                 </select>
                             </div>
-                            <div class="col">,</div>
-                            <div class="col">
-                                <input class="form-control form-control-sm" name="from_length" type="number" step="0.01" min="0.01" value="<?= $from_length ?>" placeholder="(from_length)" required />
-                            </div>
                             <div class="col">);</div>
                             <input type="hidden" name="func" value="convert_length" />
                             <div class="col"><input type="submit" class="btn btn-sm btn-success" value="Submit" /></div>
@@ -66,18 +66,10 @@
                     </form>
                     <?php if ('convert_length' == $func) : ?>
                         <h3>Result</h3>
-                        <?php
-                        $converted = convert_length($from_unit, $from_length);
-                        ?>
-                        <ul>
-                            <li><code>convert_length(<?= $from_unit ?>, <?= $from_length ?>);</code></li>
-                            <li>Converting from <?= $from_length ?> <?= $from_unit ?>:</li>
-                            <li>Returns<ul>
-                                <?php foreach ($converted as $key => $val) : ?>
-                                <li><?= $key ?>: <code><?= $val ?></code></li>
-                                <?php endforeach; ?>
-                            </ul></li>
-                        </ul>
+                        <p>Calls</p>
+                        <code>convert_length(<?= $from_length ?>, '<?= $from_unit ?>');</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(convert_length($from_length, $from_unit)) ?></pre></code>
                     <?php endif; ?>
                     <h2>2. format_length()</h2>
                 </div>
