@@ -12,6 +12,7 @@ function format_length_metric (float $cm)
     $cm = $cm % 100;
     if (0 < $m)
     {
+        $m = number_format($m, 0, '.', ',');
         if (0 == $cm)
         {
             return "{$m} m.";
@@ -33,6 +34,7 @@ function format_length_imperial (float $in)
     $in = $in % 12;
     if (0 < $ft)
     {
+        $ft = number_format($ft, 0, '.', ',');
         if (0 == $in)
         {
             return "{$ft}’";
@@ -63,23 +65,23 @@ function convert_length(float $from_length, string $from_unit)
             $cm = $from_length;
             $mt = $from_length / 100;
             $in = $from_length / 2.54;
-            $ft = $from_length / 30.48;
+            $ft = $in / 12;
         } else if ('M' == $from_unit)
         {
             $cm = $from_length * 100;
             $mt = $from_length;
-            $in = $from_length / 39.37;
             $ft = $from_length * 3.281;
+            $in = $ft * 12;
         } else if ('IN' == $from_unit)
         {
             $cm = $from_length * 2.54;
-            $mt = $from_length / 39.37;
+            $mt = $cm / 100;
             $in = $from_length;
             $ft = $from_length / 12;
         } else if ('FT' == $from_unit)
         {
             $cm = $from_length * 30.48;
-            $mt = $from_length / 3.281;
+            $mt = $cm / 100;
             $in = $from_length * 12;
             $ft = $from_length;
         } else
