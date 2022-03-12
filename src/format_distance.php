@@ -28,8 +28,8 @@ function convert_distance(float $from_distance, string $from_unit)
             return [];
         }
         return [
-            'km' => $km, 4,
-            'mi' => $mi, 4,
+            'km' => $km,
+            'mi' => $mi,
             'short' => [
                 'km' => format_distance($km, 'KM', 'S'),
                 'mi' => format_distance($mi, 'MI', 'S')
