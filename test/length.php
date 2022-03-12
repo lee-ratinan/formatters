@@ -15,18 +15,11 @@
         $page = 'length';
         include_once '_nav.php';
         include_once '../src/format_length.php';
-//        $convert = convert_length('M', 1.73);
-//        var_dump($convert);
-//        echo '<br><br>';
-//        $convert = convert_length('FT', 2.73);
-//        var_dump($convert);
         $func = filter_input(INPUT_POST, 'func', FILTER_SANITIZE_STRING);
         $from_unit = filter_input(INPUT_POST, 'from_unit', FILTER_SANITIZE_STRING);
         $from_length = filter_input(INPUT_POST, 'from_length');
-//        $to_unit = filter_input(INPUT_POST, 'to_unit', FILTER_SANITIZE_STRING);
-//        $unit = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_STRING);
-//        $mode = filter_input(INPUT_POST, 'mode', FILTER_SANITIZE_STRING);
-//        $distance = filter_input(INPUT_POST, 'distance');
+        $cm = filter_input(INPUT_POST, 'cm');
+        $in = filter_input(INPUT_POST, 'in');
         ?>
         <div class="container">
             <div class="row">
@@ -71,7 +64,63 @@
                         <p>Returns</p>
                         <code><pre><?php print_r(convert_length($from_length, $from_unit)) ?></pre></code>
                     <?php endif; ?>
-                    <h2>2. format_length()</h2>
+                    <hr>
+                    <h2>2. format_length_metric()</h2>
+                    <p>
+                        Format the length in centimeters into # m. ## cm. format<br>
+                        @param float|int $cm The length in centimeters<br>
+                        @return string The formatted length
+                    </p>
+                    <h3>Test:</h3>
+                    <form method="POST">
+                        <div class="row row-cols-lg-auto g-3 align-items-center">
+                            <div class="col">
+                                format_length_metric(
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" name="cm" type="number" step="0.01" min="0.01" value="<?= $cm ?>" placeholder="(cm)" required />
+                            </div>
+                            <div class="col">);</div>
+                            <input type="hidden" name="func" value="format_length_metric" />
+                            <div class="col"><input type="submit" class="btn btn-sm btn-success" value="Submit" /></div>
+                        </div>
+                    </form>
+                    <?php if ('format_length_metric' == $func) : ?>
+                        <h3>Result</h3>
+                        <p>Calls</p>
+                        <code>format_length_metric(<?= $cm ?>);</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(format_length_metric($cm)) ?></pre></code>
+                    <?php endif; ?>
+                    <hr>
+                    <h2>3. format_length_imperial()</h2>
+                    <p>
+                        Format the length in inches into ##’ ##” format<br>
+                        @param float|int $in The length in inches<br>
+                        @return string The formatted length
+                    </p>
+                    <h3>Test:</h3>
+                    <form method="POST">
+                        <div class="row row-cols-lg-auto g-3 align-items-center">
+                            <div class="col">
+                                format_length_imperial(
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" name="in" type="number" step="0.01" min="0.01" value="<?= $in ?>" placeholder="(in)" required />
+                            </div>
+                            <div class="col">);</div>
+                            <input type="hidden" name="func" value="format_length_imperial" />
+                            <div class="col"><input type="submit" class="btn btn-sm btn-success" value="Submit" /></div>
+                        </div>
+                    </form>
+                    <?php if ('format_length_imperial' == $func) : ?>
+                        <h3>Result</h3>
+                        <p>Calls</p>
+                        <code>format_length_imperial(<?= $in ?>);</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(format_length_imperial($in)) ?></pre></code>
+                    <?php endif; ?>
+                    <hr>
                 </div>
             </div>
         </div>

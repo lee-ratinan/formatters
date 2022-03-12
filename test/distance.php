@@ -111,6 +111,7 @@
                         <p>Returns</p>
                         <code><pre><?php print_r(format_distance($distance, $unit, $mode)) ?></pre></code>
                     <?php endif; ?>
+                    <hr>
                 </div>
             </div>
         </div>
