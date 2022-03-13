@@ -9,6 +9,10 @@ include "format_number.php";
  */
 function retrieve_currency_configs (string $currency = '')
 {
+    // AED
+    $configs['AED']['ISO'] = ['AED ###', 2, '.', ','];
+    $configs['AED']['INTL'] = ['###د.إ', 2, '.', ','];
+    $configs['AED']['LOCAL'] = ['###د.إ', 2, '٫', '٬'];
     // AUD
     $configs['AUD']['ISO'] = ['AUD ###', 2, '.', ','];
     $configs['AUD']['INTL'] = ['A$###', 2, '.', ','];
@@ -45,6 +49,10 @@ function retrieve_currency_configs (string $currency = '')
     $configs['IDR']['ISO'] = ['IDR ###', 0, '.', ','];
     $configs['IDR']['INTL'] = ['Rp###', 0, '.', ','];
     $configs['IDR']['LOCAL'] = ['Rp###', 0, ',', '.'];
+    // INR
+    $configs['INR']['ISO'] = ['INR ###', 2, '.', ','];
+    $configs['INR']['INTL'] = ['###₹', 2, '.', ','];
+    $configs['INR']['LOCAL'] = $configs['INR']['INTL'];
     // JPY
     $configs['JPY']['ISO'] = ['JPY ###', 0, '.', ','];
     $configs['JPY']['INTL'] = ['¥###', 0, '.', ','];
@@ -65,10 +73,18 @@ function retrieve_currency_configs (string $currency = '')
     $configs['MMK']['ISO'] = ['MMK ###', 0, '.', ','];
     $configs['MMK']['INTL'] = ['K###', 0, '.', ','];
     $configs['MMK']['LOCAL'] = ['###ကျပ်', 0, '.', ','];
+    // MXN
+    $configs['MXN']['ISO'] = ['MXN ###', 2, '.', ','];
+    $configs['MXN']['INTL'] = ['MX$###', 2, '.', ','];
+    $configs['MXN']['LOCAL'] = $configs['MXN']['INTL'];
     // MYR
     $configs['MYR']['ISO'] = ['MYR ###', 2, '.', ','];
     $configs['MYR']['INTL'] = ['RM###', 2, '.', ','];
     $configs['MYR']['LOCAL'] = $configs['MYR']['INTL'];
+    // NOK
+    $configs['NOK']['ISO'] = ['NOK ###', 2, '.', ','];
+    $configs['NOK']['INTL'] = ['### kr', 2, '.', ','];
+    $configs['NOK']['LOCAL'] = ['### kr', 2, ',', '.'];
     // NZD
     $configs['NZD']['ISO'] = ['NZD ###', 2, '.', ','];
     $configs['NZD']['INTL'] = ['NZ$###', 2, '.', ','];
@@ -77,6 +93,14 @@ function retrieve_currency_configs (string $currency = '')
     $configs['PHP']['ISO'] = ['PHP ###', 2, '.', ','];
     $configs['PHP']['INTL'] = ['₱###', 2, '.', ','];
     $configs['PHP']['LOCAL'] = $configs['PHP']['INTL'];
+    // RUB
+    $configs['RUB']['ISO'] = ['RUB ###', 2, '.', ','];
+    $configs['RUB']['INTL'] = ['###₽', 2, '.', ','];
+    $configs['RUB']['LOCAL'] = $configs['RUB']['INTL'];
+    // SEK
+    $configs['SEK']['ISO'] = ['SEK ###', 2, '.', ','];
+    $configs['SEK']['INTL'] = ['### kr', 2, '.', ','];
+    $configs['SEK']['LOCAL'] = ['### kr', 2, ',', '.'];
     // SGD
     $configs['SGD']['ISO'] = ['SGD ###', 2, '.', ','];
     $configs['SGD']['INTL'] = ['S$###', 2, '.', ','];
@@ -126,10 +150,10 @@ function retrieve_available_currencies ()
 function format_currency(float $amount, string $currency)
 {
     $replace_list = [
+        'AED' => 'ARABIC',
         'KHR' => 'KHMER',
         'LAK' => 'LAO',
         'MMK' => 'BURMESE',
-        'THB' => 'THAI',
     ];
     $amount = floatval($amount);
     $negative = FALSE;
