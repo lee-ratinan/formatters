@@ -10,6 +10,7 @@
                 <li><a href="#" class="nav-link px-2 <?= ('datetime' == $page ? 'text-warning':'text-secondary') ?>">Date-Time</a></li>
                 <li><a href="#" class="nav-link px-2 <?= ('address' == $page ? 'text-warning':'text-secondary') ?>">Address</a></li>
                 <li><a href="#" class="nav-link px-2 <?= ('phone' == $page ? 'text-warning':'text-secondary') ?>">Phone</a></li>
+                <li><a href="masking.php" class="nav-link px-2 <?= ('masking' == $page ? 'text-warning':'text-secondary') ?>">Masking</a></li>
             </ul>
             <div class="text-end">
                 <a href="https://github.com/lee-ratinan/formatters" target="_blank" class="btn btn-warning">GitHub</a>

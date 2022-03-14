@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Add the stars
+ * @param int $number_of_stars Number of stars
+ * @return string
+ */
+function format_add_stars (int $number_of_stars)
+{
+    $stars = '';
+    for ($i = 0; $i < $number_of_stars; $i++)
+    {
+        $stars .= '*';
+    }
+    return $stars;
+}
+
+/**
+ * Mask the email and return partially masked email xxxxx***@***ail.com
+ * @param string $email The email address to be masked
+ * @return string Masked email address, or empty string if the email is invalid
+ */
+function format_mask_email (string $email)
+{
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    if (FALSE == $email)
+    {
+        return '';
+    }
+    $explode = explode('@', $email);
+    $name = $explode[0];
+    $domain = $explode[1]; // MUST BE THERE BECAUSE $email IS ALREADY VALIDATED
+    $length_name = strlen($name);
+    $length_domain = strlen($domain);
+    $name_masked_length = floor($length_name * 0.5);
+    $name_unmasked_length = $length_name - $name_masked_length;
+    $domain_unmasked_length = floor($length_domain * 0.5);
+    $domain_masked_length = $length_domain - $domain_unmasked_length;
+    return substr($name, 0, $name_unmasked_length) . format_add_stars($name_masked_length) . '@' . format_add_stars($domain_masked_length) . substr($domain, -$domain_unmasked_length);
+}
+
+/**
+ * Mask the credit card, showing only the last 4 digits
+ * @param string $card_number Credit card number in either '#### #### #### ####' or '################' format
+ * @return string Masked credit card number, or empty string if the number is invalid
+ */
+function format_mask_credit_card (string $card_number)
+{
+    if (preg_match('/\d{4} \d{4} \d{4} \d{4}/', $card_number))
+    {
+        return '**** **** **** ' . substr($card_number, -4);
+    } else if (preg_match('/\d{16}/', $card_number))
+    {
+        return '************' . substr($card_number, -4);
+    }
+    return '';
+}
+
