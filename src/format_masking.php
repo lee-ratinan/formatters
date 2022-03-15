@@ -56,3 +56,16 @@ function format_mask_credit_card (string $card_number)
     return '';
 }
 
+/**
+ * Mask any input except the last 4 characters
+ * @param string $input Any input
+ * @return string Masked string, or empty string if the input is less than 5-character long
+ */
+function format_mask_show_last_four (string $input)
+{
+    if (5 > strlen($input))
+    {
+        return '';
+    }
+    return format_add_stars(strlen($input) - 4) . substr($input, -4);
+}

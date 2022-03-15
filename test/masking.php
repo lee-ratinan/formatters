@@ -17,6 +17,7 @@
         $func = filter_input(INPUT_POST, 'func', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $card_number = filter_input(INPUT_POST, 'card_number', FILTER_SANITIZE_STRING);
+        $input = filter_input(INPUT_POST, 'input', FILTER_SANITIZE_STRING);
         ?>
         <div class="container">
             <div class="row">
@@ -77,6 +78,35 @@
                         <p>Returns</p>
                         <code><pre><?php print_r(format_mask_credit_card($card_number)) ?></pre></code>
                     <?php endif; ?>
+                    <hr>
+                    <h2>3. format_mask_show_last_four()</h2>
+                    <p>
+                        Mask any input except the last 4 characters<br>
+                        @param string $input Any input<br>
+                        @return string Masked string, or empty string if the input is less than 5-character long
+                    </p>
+                    <h3>Test:</h3>
+                    <form method="POST">
+                        <div class="row row-cols-lg-auto g-3 align-items-center">
+                            <div class="col">
+                                format_mask_show_last_four(
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" name="input" type="text" value="<?= $input ?>" placeholder="(input)" required />
+                            </div>
+                            <div class="col">);</div>
+                            <input type="hidden" name="func" value="format_mask_show_last_four" />
+                            <div class="col"><input type="submit" class="btn btn-sm btn-success" value="Submit" /></div>
+                        </div>
+                    </form>
+                    <?php if ('format_mask_show_last_four' == $func) : ?>
+                        <h3>Result</h3>
+                        <p>Calls</p>
+                        <code>format_mask_show_last_four('<?= $input ?>');</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(format_mask_show_last_four($input)) ?></pre></code>
+                    <?php endif; ?>
+                    <hr>
                 </div>
             </div>
         </div>
