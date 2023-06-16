@@ -51,10 +51,11 @@ function retrieve_available_numeral_systems (): array
 
 /**
  * Return the number in Indian numeral system, e.g. 12,34,56.78
- * @param string $number
+ * @param string $number number to be formatted
+ * @param int $decimal_places number of decimal places to be formatted
  * @return string Formatted number
  */
-function format_number_india (string $number): string
+function format_number_india (string $number, int $decimal_places): string
 {
     $parts = explode('.', $number);
     $integer_part = $parts[0];
@@ -76,8 +77,10 @@ function format_number_india (string $number): string
             $num_digits             = 0;
         }
     }
+    $format = "%0{$decimal_places}d";
+    $zeros  = sprintf($format, 0);
     if (! empty($decimal_part)) {
-        return $formatted_integer_part . '.' . $decimal_part;
+        return $formatted_integer_part . '.' . substr($decimal_part . $zeros, 0, $decimal_places);
     }
-    return $formatted_integer_part;
+    return $formatted_integer_part . '.' . $zeros;
 }

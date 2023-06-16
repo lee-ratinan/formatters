@@ -14,9 +14,10 @@
         $page = 'number';
         include_once '_nav.php';
         include_once '../src/format_number.php';
-        $amount        = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
-        $system        = filter_input(INPUT_POST, 'system', FILTER_SANITIZE_STRING);
-        $indian_amount = filter_input(INPUT_POST, 'indian_amount', FILTER_SANITIZE_STRING);
+        $amount         = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
+        $system         = filter_input(INPUT_POST, 'system', FILTER_SANITIZE_STRING);
+        $indian_amount  = filter_input(INPUT_POST, 'indian_amount', FILTER_SANITIZE_STRING);
+        $decimal_places = filter_input(INPUT_POST, 'decimal_places', FILTER_SANITIZE_STRING);
         ?>
         <div class="container mb-3">
             <div class="row">
@@ -63,7 +64,7 @@
                     <?php if ( ! empty($system)) : ?>
                         <h3>Result</h3>
                         <p>Calls</p>
-                        <code>format_currency('<?= $amount ?>', '<?= $system ?>');</code>
+                        <code>format_other_numeral_systems('<?= $amount ?>', '<?= $system ?>');</code>
                         <p>Returns</p>
                         <code><pre><?php print_r(format_other_numeral_systems($amount, $system)) ?></pre></code>
                     <?php endif; ?>
@@ -71,8 +72,8 @@
                     <h2 id="format_number_india">3. format_number_india()</h2>
                     <p>
                         Return the number in Indian numeral system, e.g. 12,34,56.78<br>
-                        * @param string $number<br>
-                        * @return string Formatted number
+                        @param string $number number to be formatted<br>
+                        @param int $decimal_places number of decimal places to be formatted
                     </p>
                     <h3>Test:</h3>
                     <form method="POST" action="number.php#format_number_india">
@@ -83,6 +84,10 @@
                             <div class="col">
                                 <input class="form-control form-control-sm" name="indian_amount" type="text" placeholder="(amount)" value="<?= $indian_amount ?>" required />
                             </div>
+                            <div class="col">,</div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" name="decimal_places" type="text" placeholder="(decimal_places)" value="<?= $decimal_places ?>" required />
+                            </div>
                             <div class="col">);</div>
                             <div class="col"><input type="submit" class="btn btn-sm btn-success" value="Submit" /></div>
                         </div>
@@ -90,9 +95,9 @@
                     <?php if ( ! empty($indian_amount)) : ?>
                         <h3>Result</h3>
                         <p>Calls</p>
-                        <code>format_number_india('<?= $indian_amount ?>');</code>
+                        <code>format_number_india('<?= $indian_amount ?>', '<?= $decimal_places ?>');</code>
                         <p>Returns</p>
-                        <code><pre><?php print_r(format_number_india($indian_amount)) ?></pre></code>
+                        <code><pre><?php print_r(format_number_india($indian_amount, $decimal_places)) ?></pre></code>
                     <?php endif; ?>
                 </div>
             </div>
