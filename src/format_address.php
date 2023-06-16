@@ -49,7 +49,7 @@ function format_address_sg (string $street_number, string $street_name, string $
  * @param string $postal_code
  * @param string $apartment_name (optional)
  * @param string $unit_number (optional)
- * @return string
+ * @return string Formatted address
  */
 function format_address_us (string $street_number, string $street_name, string $city_name, string $state, string $postal_code, string $apartment_name = '', string $unit_number = ''): string
 {

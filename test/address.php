@@ -82,7 +82,7 @@
                         @param string $postal_code<br>
                         @param string $apartment_name (optional)<br>
                         @param string $unit_number (optional)<br>
-                        @return string
+                        @return string Formatted address
                     </p>
                     <h3>Test:</h3>
                     <form method="POST">
