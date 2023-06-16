@@ -96,7 +96,7 @@
                     <?php if ( ! empty($indian_amount)) : ?>
                         <h3>Result</h3>
                         <p>Calls</p>
-                        <code>format_number_india('<?= $indian_amount ?>', '<?= $decimal_places ?>');</code>
+                        <code>format_number_india('<?= $indian_amount ?>', <?= $decimal_places ?>);</code>
                         <p>Returns</p>
                         <code><pre><?php print_r(format_number_india($indian_amount, $decimal_places)) ?></pre></code>
                     <?php endif; ?>

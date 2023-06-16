@@ -64,14 +64,14 @@
                         <code><pre><?php print_r(convert_length($from_length, $from_unit)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
-                    <h2>2. format_length_metric()</h2>
+                    <h2 id="format_length_metric">2. format_length_metric()</h2>
                     <p>
-                        Format the length in centimeters into # m. ## cm. format<br>
+                        Format the length in centimeters into #m #cm format<br>
                         @param float|int $cm The length in centimeters<br>
                         @return string The formatted length
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="length.php#format_length_metric">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_length_metric(
@@ -94,7 +94,7 @@
                     <hr>
                     <h2>3. format_length_imperial()</h2>
                     <p>
-                        Format the length in inches into ##’ ##” format<br>
+                        Format the length in inches into ##’##” format<br>
                         @param float|int $in The length in inches<br>
                         @return string The formatted length
                     </p>
