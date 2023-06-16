@@ -71,9 +71,10 @@
                     <hr>
                     <h2 id="format_number_india">3. format_number_india()</h2>
                     <p>
-                        Return the number in Indian numeral system, e.g. 12,34,56.78<br>
+                        Return the number in Indian numeral system, e.g. 12,34,567.89<br>
                         @param string $number number to be formatted<br>
-                        @param int $decimal_places number of decimal places to be formatted
+                        @param int $decimal_places number of decimal places to be formatted<br>
+                        @return string Formatted number
                     </p>
                     <h3>Test:</h3>
                     <form method="POST" action="number.php#format_number_india">

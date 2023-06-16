@@ -50,7 +50,7 @@ function retrieve_available_numeral_systems (): array
 }
 
 /**
- * Return the number in Indian numeral system, e.g. 12,34,56.78
+ * Return the number in Indian numeral system, e.g. 12,34,567.89
  * @param string $number number to be formatted
  * @param int $decimal_places number of decimal places to be formatted
  * @return string Formatted number

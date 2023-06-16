@@ -24,7 +24,7 @@
                     <h1>Currency</h1>
                     <h2 id="retrieve_available_currencies">1. retrieve_available_currencies()</h2>
                     <p>
-                        Return the list of supported currencies
+                        Return the list of supported currencies<br>
                         @return array The list of supported currencies
                     </p>
                     <h3>Result</h3>
