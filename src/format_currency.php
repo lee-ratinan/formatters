@@ -11,116 +11,116 @@ function retrieve_currency_configs (string $currency = '')
 {
     // AED
     $configs['AED']['ISO'] = ['AED ###', 2, '.', ','];
-    $configs['AED']['INTL'] = ['###د.إ', 2, '.', ','];
-    $configs['AED']['LOCAL'] = ['###د.إ', 2, '٫', '٬'];
+    $configs['AED']['INT'] = ['###د.إ', 2, '.', ','];
+    $configs['AED']['LOC'] = ['###د.إ', 2, '٫', '٬'];
     // AUD
     $configs['AUD']['ISO'] = ['AUD ###', 2, '.', ','];
-    $configs['AUD']['INTL'] = ['A$###', 2, '.', ','];
-    $configs['AUD']['LOCAL'] = $configs['AUD']['INTL'];
+    $configs['AUD']['INT'] = ['A$###', 2, '.', ','];
+    $configs['AUD']['LOC'] = $configs['AUD']['INT'];
     // BND
     $configs['BND']['ISO'] = ['BND ###', 2, '.', ','];
-    $configs['BND']['INTL'] = ['B$###', 2, '.', ','];
-    $configs['BND']['LOCAL'] = $configs['BND']['INTL'];
+    $configs['BND']['INT'] = ['B$###', 2, '.', ','];
+    $configs['BND']['LOC'] = $configs['BND']['INT'];
     // CAD
     $configs['CAD']['ISO'] = ['CAD ###', 2, '.', ','];
-    $configs['CAD']['INTL'] = ['C$###', 2, '.', ','];
-    $configs['CAD']['LOCAL'] = $configs['CAD']['INTL'];
+    $configs['CAD']['INT'] = ['C$###', 2, '.', ','];
+    $configs['CAD']['LOC'] = $configs['CAD']['INT'];
     // CHF
     $configs['CHF']['ISO'] = ['CHF ###', 2, '.', ','];
-    $configs['CHF']['INTL'] = ['### Fr.', 2, '.', ','];
-    $configs['CHF']['LOCAL'] = ['### Fr.', 2, ',', '.'];
+    $configs['CHF']['INT'] = ['### Fr.', 2, '.', ','];
+    $configs['CHF']['LOC'] = ['### Fr.', 2, ',', '.'];
     // CNY
     $configs['CNY']['ISO'] = ['CNY ###', 2, '.', ','];
-    $configs['CNY']['INTL'] = ['¥###', 2, '.', ','];
-    $configs['CNY']['LOCAL'] = ['###元', 2, '.', ','];
+    $configs['CNY']['INT'] = ['¥###', 2, '.', ','];
+    $configs['CNY']['LOC'] = ['###元', 2, '.', ','];
     // EUR
     $configs['EUR']['ISO'] = ['EUR ###', 2, '.', ','];
-    $configs['EUR']['INTL'] = ['€###', 2, '.', ','];
-    $configs['EUR']['LOCAL'] = ['€###', 2, ',', '.'];
+    $configs['EUR']['INT'] = ['€###', 2, '.', ','];
+    $configs['EUR']['LOC'] = ['€###', 2, ',', '.'];
     // GBP
     $configs['GBP']['ISO'] = ['GBP ###', 2, '.', ','];
-    $configs['GBP']['INTL'] = ['£###', 2, '.', ','];
-    $configs['GBP']['LOCAL'] = $configs['GBP']['INTL'];
+    $configs['GBP']['INT'] = ['£###', 2, '.', ','];
+    $configs['GBP']['LOC'] = $configs['GBP']['INT'];
     // HKD
     $configs['HKD']['ISO'] = ['HKD ###', 2, '.', ','];
-    $configs['HKD']['INTL'] = ['HK$###', 2, '.', ','];
-    $configs['HKD']['LOCAL'] = $configs['HKD']['INTL'];
+    $configs['HKD']['INT'] = ['HK$###', 2, '.', ','];
+    $configs['HKD']['LOC'] = $configs['HKD']['INT'];
     // IDR
     $configs['IDR']['ISO'] = ['IDR ###', 0, '.', ','];
-    $configs['IDR']['INTL'] = ['Rp###', 0, '.', ','];
-    $configs['IDR']['LOCAL'] = ['Rp###', 0, ',', '.'];
+    $configs['IDR']['INT'] = ['Rp###', 0, ',', '.'];
+    $configs['IDR']['LOC'] = $configs['IDR']['INT'];
     // INR
     $configs['INR']['ISO'] = ['INR ###', 2, '.', ','];
-    $configs['INR']['INTL'] = ['###₹', 2, '.', ','];
-    $configs['INR']['LOCAL'] = $configs['INR']['INTL'];
+    $configs['INR']['INT'] = ['###₹', 2, '.', ','];
+    $configs['INR']['LOC'] = $configs['INR']['INT'];
     // JPY
     $configs['JPY']['ISO'] = ['JPY ###', 0, '.', ','];
-    $configs['JPY']['INTL'] = ['¥###', 0, '.', ','];
-    $configs['JPY']['LOCAL'] = ['###円', 0, '.', ','];
+    $configs['JPY']['INT'] = ['¥###', 0, '.', ','];
+    $configs['JPY']['LOC'] = ['###円', 0, '.', ','];
     // KHR
     $configs['KHR']['ISO'] = ['KHR ###', 0, '.', ','];
-    $configs['KHR']['INTL'] = ['###៛', 0, '.', ','];
-    $configs['KHR']['LOCAL'] = $configs['KHR']['INTL'];
+    $configs['KHR']['INT'] = ['###៛', 0, '.', ','];
+    $configs['KHR']['LOC'] = $configs['KHR']['INT'];
     // KRW
     $configs['KRW']['ISO'] = ['KRW ###', 0, '.', ','];
-    $configs['KRW']['INTL'] = ['₩###', 0, '.', ','];
-    $configs['KRW']['LOCAL'] = ['###원', 0, '.', ','];
+    $configs['KRW']['INT'] = ['₩###', 0, '.', ','];
+    $configs['KRW']['LOC'] = ['###원', 0, '.', ','];
     // LAK
     $configs['LAK']['ISO'] = ['LAK ###', 2, '.', ','];
-    $configs['LAK']['INTL'] = ['₭###', 2, '.', ','];
-    $configs['LAK']['LOCAL'] = ['### ກີບ', 2, '.', ','];
+    $configs['LAK']['INT'] = ['₭###', 2, '.', ','];
+    $configs['LAK']['LOC'] = ['### ກີບ', 2, '.', ','];
     // MMK
     $configs['MMK']['ISO'] = ['MMK ###', 0, '.', ','];
-    $configs['MMK']['INTL'] = ['K###', 0, '.', ','];
-    $configs['MMK']['LOCAL'] = ['###ကျပ်', 0, '.', ','];
+    $configs['MMK']['INT'] = ['K###', 0, '.', ','];
+    $configs['MMK']['LOC'] = ['###ကျပ်', 0, '.', ','];
     // MXN
     $configs['MXN']['ISO'] = ['MXN ###', 2, '.', ','];
-    $configs['MXN']['INTL'] = ['MX$###', 2, '.', ','];
-    $configs['MXN']['LOCAL'] = $configs['MXN']['INTL'];
+    $configs['MXN']['INT'] = ['MX$###', 2, '.', ','];
+    $configs['MXN']['LOC'] = $configs['MXN']['INT'];
     // MYR
     $configs['MYR']['ISO'] = ['MYR ###', 2, '.', ','];
-    $configs['MYR']['INTL'] = ['RM###', 2, '.', ','];
-    $configs['MYR']['LOCAL'] = $configs['MYR']['INTL'];
+    $configs['MYR']['INT'] = ['RM###', 2, '.', ','];
+    $configs['MYR']['LOC'] = $configs['MYR']['INT'];
     // NOK
     $configs['NOK']['ISO'] = ['NOK ###', 2, '.', ','];
-    $configs['NOK']['INTL'] = ['### kr', 2, '.', ','];
-    $configs['NOK']['LOCAL'] = ['### kr', 2, ',', '.'];
+    $configs['NOK']['INT'] = ['### kr', 2, '.', ','];
+    $configs['NOK']['LOC'] = ['### kr', 2, ',', '.'];
     // NZD
     $configs['NZD']['ISO'] = ['NZD ###', 2, '.', ','];
-    $configs['NZD']['INTL'] = ['NZ$###', 2, '.', ','];
-    $configs['NZD']['LOCAL'] = $configs['NZD']['INTL'];
+    $configs['NZD']['INT'] = ['NZ$###', 2, '.', ','];
+    $configs['NZD']['LOC'] = $configs['NZD']['INT'];
     // PHP
     $configs['PHP']['ISO'] = ['PHP ###', 2, '.', ','];
-    $configs['PHP']['INTL'] = ['₱###', 2, '.', ','];
-    $configs['PHP']['LOCAL'] = $configs['PHP']['INTL'];
+    $configs['PHP']['INT'] = ['₱###', 2, '.', ','];
+    $configs['PHP']['LOC'] = $configs['PHP']['INT'];
     // RUB
     $configs['RUB']['ISO'] = ['RUB ###', 2, '.', ','];
-    $configs['RUB']['INTL'] = ['###₽', 2, '.', ','];
-    $configs['RUB']['LOCAL'] = $configs['RUB']['INTL'];
+    $configs['RUB']['INT'] = ['###₽', 2, '.', ','];
+    $configs['RUB']['LOC'] = $configs['RUB']['INT'];
     // SEK
     $configs['SEK']['ISO'] = ['SEK ###', 2, '.', ','];
-    $configs['SEK']['INTL'] = ['### kr', 2, '.', ','];
-    $configs['SEK']['LOCAL'] = ['### kr', 2, ',', '.'];
+    $configs['SEK']['INT'] = ['### kr', 2, '.', ','];
+    $configs['SEK']['LOC'] = ['### kr', 2, ',', '.'];
     // SGD
     $configs['SGD']['ISO'] = ['SGD ###', 2, '.', ','];
-    $configs['SGD']['INTL'] = ['S$###', 2, '.', ','];
-    $configs['SGD']['LOCAL'] = $configs['SGD']['INTL'];
+    $configs['SGD']['INT'] = ['S$###', 2, '.', ','];
+    $configs['SGD']['LOC'] = $configs['SGD']['INT'];
     // THB
     $configs['THB']['ISO'] = ['THB ###', 2, '.', ','];
-    $configs['THB']['INTL'] = ['฿###', 2, '.', ','];
-    $configs['THB']['LOCAL'] = ['### บ.', 2, '.', ','];
+    $configs['THB']['INT'] = ['฿###', 2, '.', ','];
+    $configs['THB']['LOC'] = ['### บ.', 2, '.', ','];
     // TWD
     $configs['TWD']['ISO'] = ['TWD ###', 2, '.', ','];
-    $configs['TWD']['INTL'] = ['NT$###', 2, '.', ','];
-    $configs['TWD']['LOCAL'] = ['###元', 2, '.', ','];
+    $configs['TWD']['INT'] = ['NT$###', 2, '.', ','];
+    $configs['TWD']['LOC'] = ['###元', 2, '.', ','];
     // USD
     $configs['USD']['ISO'] = ['USD ###', 2, '.', ','];
-    $configs['USD']['INTL'] = ['$###', 2, '.', ','];
-    $configs['USD']['LOCAL'] = $configs['USD']['INTL'];
+    $configs['USD']['INT'] = ['$###', 2, '.', ','];
+    $configs['USD']['LOC'] = $configs['USD']['INT'];
     // VND
     $configs['VND']['ISO'] = ['VND ###', 0, '.', ','];
-    $configs['VND']['INTL'] = ['###₫', 0, '.', ','];
-    $configs['VND']['LOCAL'] = ['###₫', 0, ',', '.'];
+    $configs['VND']['INT'] = ['###₫', 0, '.', ','];
+    $configs['VND']['LOC'] = ['###₫', 0, ',', '.'];
     if (empty($currency))
     {
         return $configs;
@@ -170,7 +170,7 @@ function format_currency(float $amount, string $currency)
     foreach ($config as $format => $cf) {
         $amt = number_format($amount, $cf[1], $cf[2], $cf[3]);
         $amt = str_replace('###', $amt, $cf[0]);
-        if ('LOCAL' == $format && isset($replace_list[$currency]))
+        if ('LOC' == $format && isset($replace_list[$currency]))
         {
             $formats[$format] = ($negative ? '-' : '') . format_other_numeral_systems ($amt, $replace_list[$currency]);
         } else

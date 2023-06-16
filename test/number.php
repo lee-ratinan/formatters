@@ -14,14 +14,15 @@
         $page = 'number';
         include_once '_nav.php';
         include_once '../src/format_number.php';
-        $amount = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
-        $system = filter_input(INPUT_POST, 'system', FILTER_SANITIZE_STRING);
+        $amount        = filter_input(INPUT_POST, 'amount', FILTER_SANITIZE_STRING);
+        $system        = filter_input(INPUT_POST, 'system', FILTER_SANITIZE_STRING);
+        $indian_amount = filter_input(INPUT_POST, 'indian_amount', FILTER_SANITIZE_STRING);
         ?>
         <div class="container mb-3">
             <div class="row">
                 <div class="col">
                     <h1>Number</h1>
-                    <h2>1. retrieve_available_numeral_systems()</h2>
+                    <h2 id="retrieve_available_numeral_systems">1. retrieve_available_numeral_systems()</h2>
                     <p>
                         Return the list of supported numeral systems<br>
                         @return array The list of supported numeral systems
@@ -29,7 +30,7 @@
                     <h3>Result</h3>
                     <code><pre><?php print_r(retrieve_available_numeral_systems()) ?></pre></code>
                     <hr>
-                    <h2>2. format_other_numeral_systems()</h2>
+                    <h2 id="format_other_numeral_systems">2. format_other_numeral_systems()</h2>
                     <p>
                         Return the number in the new numeral system<br>
                         @param string $number The number (in string) to format<br>
@@ -37,7 +38,7 @@
                         @return string The number in the numeral system specified by $system, empty string if error
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="number.php#format_other_numeral_systems">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_other_numeral_systems(
@@ -67,6 +68,32 @@
                         <code><pre><?php print_r(format_other_numeral_systems($amount, $system)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
+                    <h2 id="format_number_india">3. format_number_india()</h2>
+                    <p>
+                        Return the number in Indian numeral system, e.g. 12,34,56.78<br>
+                        * @param string $number<br>
+                        * @return string Formatted number
+                    </p>
+                    <h3>Test:</h3>
+                    <form method="POST" action="number.php#format_number_india">
+                        <div class="row row-cols-lg-auto g-3 align-items-center">
+                            <div class="col">
+                                format_number_india(
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" name="indian_amount" type="text" placeholder="(amount)" value="<?= $indian_amount ?>" required />
+                            </div>
+                            <div class="col">);</div>
+                            <div class="col"><input type="submit" class="btn btn-sm btn-success" value="Submit" /></div>
+                        </div>
+                    </form>
+                    <?php if ( ! empty($indian_amount)) : ?>
+                        <h3>Result</h3>
+                        <p>Calls</p>
+                        <code>format_number_india('<?= $indian_amount ?>');</code>
+                        <p>Returns</p>
+                        <code><pre><?php print_r(format_number_india($indian_amount)) ?></pre></code>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
