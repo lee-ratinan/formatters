@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col">
                     <h1>Length</h1>
-                    <h2>1. convert_length()</h2>
+                    <h2 id="convert_length">1. convert_length()</h2>
                     <p>
                         Convert length - between metric and imperial<br>
                         @param float $from_length Length in the $from_unit<br>
@@ -32,7 +32,7 @@
                         @return array Length in the 4 units: centimeter (CM), meter (M), foot (FT), inch (IN), along with the metric (M/CM) and imperial (FT/IN) combinations
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="length.php#convert_length">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 convert_length(
@@ -92,14 +92,14 @@
                         <code><pre><?php print_r(format_length_metric($cm)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
-                    <h2>3. format_length_imperial()</h2>
+                    <h2 id="format_length_imperial">3. format_length_imperial()</h2>
                     <p>
                         Format the length in inches into ##’##” format<br>
                         @param float|int $in The length in inches<br>
                         @return string The formatted length
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="length.php#format_length_imperial">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_length_imperial(

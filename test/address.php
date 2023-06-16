@@ -29,7 +29,7 @@
                 <div class="col">
                     <h1>Address</h1>
                     <!--- SG --->
-                    <h2>1. format_address_sg()</h2>
+                    <h2 id="format_address_sg">1. format_address_sg()</h2>
                     <p>
                         Format Singapore address, e.g.<br>
                         123 Example Street<br>
@@ -44,7 +44,7 @@
                         @return string Formatted address
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="address.php#format_address_sg">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_address_sg(
@@ -69,7 +69,7 @@
                     <?php endif; ?>
                     <hr>
                     <!--- USA --->
-                    <h2>2. format_address_us()</h2>
+                    <h2 id="format_address_us">2. format_address_us()</h2>
                     <p>
                         Format USA address, e.g.<br>
                         300 Main St.<br>
@@ -85,7 +85,7 @@
                         @return string Formatted address
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="address.php#format_address_us">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_address_us(

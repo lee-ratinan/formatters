@@ -23,14 +23,14 @@
             <div class="row">
                 <div class="col">
                     <h1>Masking</h1>
-                    <h2>1. format_mask_email()</h2>
+                    <h2 id="format_mask_email">1. format_mask_email()</h2>
                     <p>
                         Mask the email and return partially masked email xxxxx***@***ail.com<br>
                         @param string $email The email address to be masked<br>
                         @return string Masked email address, or empty string if the email is invalid
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="masking.php#format_mask_email">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_mask_email(
@@ -51,14 +51,14 @@
                         <code><pre><?php print_r(format_mask_email($email)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
-                    <h2>2. format_mask_credit_card()</h2>
+                    <h2 id="format_mask_credit_card">2. format_mask_credit_card()</h2>
                     <p>
                         Mask the credit card, showing only the last 4 digits<br>
                         @param string $card_number Credit card number in either '#### #### #### ####' or '################' format<br>
                         @return string Masked credit card number, or empty string if the number is invalid
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="masking.php#format_mask_credit_card">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_mask_credit_card(
@@ -79,14 +79,14 @@
                         <code><pre><?php print_r(format_mask_credit_card($card_number)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
-                    <h2>3. format_mask_show_last_four()</h2>
+                    <h2 id="format_mask_show_last_four">3. format_mask_show_last_four()</h2>
                     <p>
                         Mask any input except the last 4 characters<br>
                         @param string $input Any input<br>
                         @return string Masked string, or empty string if the input is less than 5-character long
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="masking.php#format_mask_show_last_four">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_mask_show_last_four(

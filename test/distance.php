@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col">
                     <h1>Distance</h1>
-                    <h2>1. convert_distance()</h2>
+                    <h2 id="convert_distance">1. convert_distance()</h2>
                     <p>
                         Convert distance - between kilometers (KM) and miles (MI)<br>
                         @param float $from_distance Distance in the $from_unit<br>
@@ -33,7 +33,7 @@
                         @return array Distances in both kilometers and miles, empty array if error
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="distance.php#convert_distance">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 convert_distance(
@@ -63,7 +63,7 @@
                         <code><pre><?php print_r(convert_distance($from_distance, $from_unit)) ?></pre></code>
                     <?php endif; ?>
                     <hr>
-                    <h2>2. format_distance()</h2>
+                    <h2 id="format_distance">2. format_distance()</h2>
                     <p>
                         Format the distance<br>
                         @param float $distance The distance to format<br>
@@ -72,7 +72,7 @@
                         @return string The formatted distance, empty string if error
                     </p>
                     <h3>Test:</h3>
-                    <form method="POST">
+                    <form method="POST" action="distance.php#format_distance">
                         <div class="row row-cols-lg-auto g-3 align-items-center">
                             <div class="col">
                                 format_distance(
